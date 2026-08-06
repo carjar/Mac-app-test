@@ -15,3 +15,15 @@ jobs:
         with:
           name: mac-app
           path: dist/
+
+      - name: Package release folder
+        run: |
+          mkdir release_folder
+          cp -r "dist/macapptest.app" release_folder/
+          cp macapptest.py release_folder/
+          cd release_folder
+          zip -r ../dist/macapptest.zip .
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mac-zip
+          path: dist/macapptest.zip
