@@ -10,7 +10,7 @@ jobs:
         with:
           python-version: '3.x'
       - run: pip install pyinstaller
-      - run: pyinstaller --onefile --target-architecture universal2 macapptest.py
+      - run: pyinstaller --onefile --windowed --target-architecture universal2 macapptest.py
       - uses: actions/upload-artifact@v4
         with:
           name: mac-app
