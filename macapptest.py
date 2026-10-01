@@ -6,8 +6,8 @@ import sys
 import os
 
 # If the file is in a .app or .exe bundle (sys.frozen = true), manually set the dir
-if getattr(sys, 'frozen', False):
-    app_dir = os.path.dirname(sys.executable)
+if sys.platform == 'darwin':
+    app_dir = os.path.abspath(os.path.join(os.path.dirname(sys.executable), '..', '..', '..'))
 else:
     app_dir = os.path.dirname(os.path.abspath(__file__))
 
